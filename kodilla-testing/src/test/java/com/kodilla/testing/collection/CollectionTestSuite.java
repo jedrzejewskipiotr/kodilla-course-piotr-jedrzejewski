@@ -47,6 +47,11 @@ public class CollectionTestSuite {
     }
 
     @Test
+    public void dumpTest(){
+        Assert.assertTrue(false);
+    }
+
+    @Test
     public void testOddNumbersExterminatorNormalList() {
 
         //Given
@@ -63,11 +68,12 @@ public class CollectionTestSuite {
                 evenNumbersExterminatedList.add(temporaryValue);
             }
         }
+
+        evenNumbersExterminatedList.add(1);
+
         //Then
         for (Integer list : evenNumbersExterminatedList) {
-            if (list % 2 != 0) {
-                System.out.println("Test error");
-            }
+            Assert.assertTrue(list % 2 == 0);
         }
     }
 }
