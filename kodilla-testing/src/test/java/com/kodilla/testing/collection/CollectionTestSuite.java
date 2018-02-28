@@ -1,10 +1,18 @@
 package com.kodilla.testing.collection;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
+
+    private OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
     @Before
     public void before() {
@@ -27,9 +35,31 @@ public class CollectionTestSuite {
     }
 
     @Test
+    public void oddNumberExterminator() {
+
+        //Given
+        List<Integer> integers = new ArrayList<>();
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        integers.add(4);
+        integers.add(5);
+
+        //When
+        List<Integer> evenNumbers = oddNumbersExterminator.exterminate(integers);
+
+        //Then
+        for (Integer integer : evenNumbers) {
+            Assert.assertTrue(integer % 2 == 0);
+        }
+    }
+
+
+    @Test
     public void testOddNumbersExterminatorEmptyList() {
 
         //Given
+
         ArrayList<Integer> newNumbers = new ArrayList<Integer>();
         ArrayList<Integer> evenNumbersExterminatedList = new ArrayList<Integer>();
         //When
