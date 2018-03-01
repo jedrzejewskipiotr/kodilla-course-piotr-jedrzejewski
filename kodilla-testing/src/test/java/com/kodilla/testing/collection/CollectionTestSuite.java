@@ -3,8 +3,11 @@ package com.kodilla.testing.collection;
 import org.junit.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CollectionTestSuite {
+
+    private OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
     @Before
     public void before() {
@@ -30,47 +33,37 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
 
         //Given
-        ArrayList<Integer> newNumbers = new ArrayList<Integer>();
-        ArrayList<Integer> evenNumbersExterminatedList = new ArrayList<Integer>();
+        List<Integer> evenNumbersExterminatedList = new ArrayList<Integer>();
+
         //When
-        Integer temporaryValue = 0;
-        for (Integer n = 0; n < newNumbers.size(); n++) {
-            temporaryValue = newNumbers.get(n);
-            if (temporaryValue % 2 == 0) {
-                evenNumbersExterminatedList.add(temporaryValue);
-            }
-        }
+        List<Integer> evenNumbers = oddNumbersExterminator.exterminate(evenNumbersExterminatedList);
+
         //Then
-        if (newNumbers.isEmpty()) {
-            System.out.println("Test error : list is empty");
-        }
+        Assert.assertTrue(evenNumbersExterminatedList.isEmpty());
     }
+
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
 
         //Given
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        ArrayList<Integer> evenNumbersExterminatedList = new ArrayList<Integer>();
+        List<Integer> numbers = new ArrayList<Integer>();
+
         for (int i = 0; i < 10; i++) {
             numbers.add(i);
         }
+
         //When
-        Integer temporaryValue = 0;
-        for (Integer n = 0; n < numbers.size(); n++) {
-            temporaryValue = numbers.get(n);
-            if (temporaryValue % 2 == 0) {
-                evenNumbersExterminatedList.add(temporaryValue);
-            }
-        }
+        List<Integer> newNumbers = oddNumbersExterminator.exterminate(numbers);
+
         //Then
-        for (Integer list : evenNumbersExterminatedList) {
-            if (list % 2 != 0) {
-                System.out.println("Test error");
-            }
+        for (Integer normalList : newNumbers) {
+            Assert.assertTrue(normalList % 2 == 0);
         }
     }
 }
+
+
 
 
 
