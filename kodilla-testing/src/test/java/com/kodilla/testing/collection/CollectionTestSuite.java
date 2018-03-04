@@ -39,7 +39,7 @@ public class CollectionTestSuite {
         List<Integer> evenNumbers = oddNumbersExterminator.exterminate(evenNumbersExterminatedList);
 
         //Then
-        Assert.assertTrue(evenNumbersExterminatedList.isEmpty());
+        Assert.assertTrue(evenNumbers.isEmpty());
     }
 
 
