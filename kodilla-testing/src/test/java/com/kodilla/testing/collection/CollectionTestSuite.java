@@ -42,7 +42,6 @@ public class CollectionTestSuite {
         Assert.assertTrue(evenNumbers.isEmpty());
     }
 
-
     @Test
     public void testOddNumbersExterminatorNormalList() {
 
