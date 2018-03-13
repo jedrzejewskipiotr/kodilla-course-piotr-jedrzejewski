@@ -142,6 +142,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(1000, statisticsCalculator.getPostsNumber());
         Assert.assertEquals(1500, statisticsCalculator.getCommentsNumber());
     }
+
     @Test
     public void testCalculateAdvStatisticsWithMockLessCommentsThanPosts() {
         //Given
