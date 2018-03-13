@@ -1,14 +1,47 @@
 package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculator {
-    Statistics statistics;
 
-    public StatisticsCalculator(Statistics statistics){
-        this.statistics = statistics;
+    int userNumber;
+
+    int postsNumber;
+    int commentsNumber;
+    double averagePostsPerUser;
+    double averageCommentsPerUser;
+    double averageCommentsPerPost;
+
+    public int getUserNumber() {
+        return userNumber;
     }
 
-     int calculateAveragePostsPerUser(Statistics statistics) {
-        return statistics.postsCount()/statistics.usersNames().size();
+    public int getCommentsNumber() {
+        return commentsNumber;
+    }
+
+    public double getAveragePostsPerUser() {
+        return averagePostsPerUser;
+    }
+
+    public double getAverageCommentsPerUser() {
+        return averageCommentsPerUser;
+    }
+
+    public double getAverageCommentsPerPost() {
+        return averageCommentsPerPost;
+    }
+
+    public int getPostsNumber() {
+        return postsNumber;
+    }
+
+    void calculateAdvStatistics(Statistics statistics) {
+        averagePostsPerUser = (double)statistics.postsCount()/statistics.usersNames().size();
+        averageCommentsPerUser = (double)statistics.commentsCount() / statistics.usersNames().size();
+        averageCommentsPerPost = (double)statistics.commentsCount()/statistics.postsCount();
+
+        userNumber = statistics.usersNames().size();
+        postsNumber = statistics.postsCount();
+        commentsNumber = statistics.commentsCount();
     }
 }
 
